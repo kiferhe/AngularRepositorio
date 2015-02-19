@@ -1,0 +1,19 @@
+
+<div class="jumbotron text-center">
+	<h1>Página Principal</h1>
+	Search: <input ng-model="query">
+	<select ng-model="orderProp">
+	  <option value="name">Alphabetical</option>
+	  <option value="age">Newest</option>
+	</select>
+	<p>{{ message }}</p>
+		<ul>
+          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+			<input type="checkbox">
+			<p>
+            <a href="#phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+            <a href="#phones/{{phone.id}}">{{phone.name}}</a>
+            <p>{{phone.snippet}}</p>
+          </li>
+        </ul>
+</div>
